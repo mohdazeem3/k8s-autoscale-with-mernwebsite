@@ -16,7 +16,7 @@ RUN npm install --production
 # -----------------------
 # 3️⃣ Copy source code
 # -----------------------
-COPY backend .
+COPY . .
 
 # -----------------------
 # 4️⃣ Expose API port
