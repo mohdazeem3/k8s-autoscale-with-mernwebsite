@@ -7,7 +7,7 @@ pipeline {
     }
 
     environment {
-        DOCKERHUB_CREDENTIALS = credentials('dockerhub-id') // Jenkins credential ID for Docker Hub
+        DOCKERHUB_CREDENTIALS = credentials('docker-cred') // Jenkins credential ID for Docker Hub
         K8S_NAMESPACE = 'mern'
         BACKEND_IMAGE = 'azeem345/mern-backend:latest'
         FRONTEND_IMAGE = 'azeem345/mern-frontend:latest'
