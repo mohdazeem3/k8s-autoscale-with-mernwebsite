@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker {
             image 'azeem345/k8projectcontainer' // your custom container
-            args '-u root:root --rm'             // --rm ensures container is removed after run
+            args '-u root:root -v /var/run/docker.sock:/var/run/docker.sock --rm'             // --rm ensures container is removed after run
         }
     }
 
