@@ -1,0 +1,61 @@
+pipeline {
+    agent {
+        docker {
+            image 'azeem345/k8sprojectcontainer' // your custom container
+            args '-u root:root --rm'             // --rm ensures container is removed after run
+        }
+    }
+
+    environment {
+        DOCKERHUB_CREDENTIALS = credentials('dockerhub-id') // Jenkins credential ID for Docker Hub
+        K8S_NAMESPACE = 'mern'
+        BACKEND_IMAGE = 'azeem345/mern-backend:latest'
+        FRONTEND_IMAGE = 'azeem345/mern-frontend:latest'
+    }
+
+    stages {
+        stage('Checkout Code') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Build Backend Docker Image') {
+            steps {
+                dir('backend') {
+                    sh "docker build -t ${BACKEND_IMAGE} ."
+                    sh "docker login -u ${DOCKERHUB_CREDENTIALS_USR} -p ${DOCKERHUB_CREDENTIALS_PSW}"
+                    sh "docker push ${BACKEND_IMAGE}"
+                }
+            }
+        }
+
+        stage('Build Frontend Docker Image') {
+            steps {
+                dir('frontend') {
+                    sh "docker build -t ${FRONTEND_IMAGE} ."
+                    sh "docker login -u ${DOCKERHUB_CREDENTIALS_USR} -p ${DOCKERHUB_CREDENTIALS_PSW}"
+                    sh "docker push ${FRONTEND_IMAGE}"
+                }
+            }
+        }
+
+        stage('Deploy to Kubernetes') {
+            steps {
+                sh "kubectl set image -n ${K8S_NAMESPACE} deployment/mern-backend backend=${BACKEND_IMAGE} --record"
+                sh "kubectl set image -n ${K8S_NAMESPACE} deployment/mern-frontend frontend=${FRONTEND_IMAGE} --record"
+                sh "kubectl apply -n ${K8S_NAMESPACE} -f ./k8s/"
+            }
+        }
+    }
+
+    post {
+        success {
+            echo "✅ Deployment completed successfully!"
+        }
+        failure {
+            echo "❌ Deployment failed. Check logs for details."
+        }
+    }
+}
+
