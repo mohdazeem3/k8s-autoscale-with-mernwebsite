@@ -1,11 +1,14 @@
-import React, { useState } from 'react'
-import { Image } from "@chakra-ui/react"
+import React, { useState } from 'react';
+import { Image } from "@chakra-ui/react";
 import { Helmet } from 'react-helmet';
 
-import cover from './cover.jpg'
-import { Input,InputGroup, InputLeftElement, Textarea,Button  } from "@chakra-ui/react"
-import {BsEnvelope, GiPositionMarker, HiOutlinePhone} from 'react-icons/all'
-import './contactuscss.css'
+import cover from './cover.jpg';
+import { Input, InputGroup, InputLeftElement, Textarea, Button } from "@chakra-ui/react";
+import { BsEnvelope } from 'react-icons/bs';
+import { GiPositionMarker } from 'react-icons/gi';
+import { HiOutlinePhone } from 'react-icons/hi';
+import './contactuscss.css';
+
 const Contactus = () => {
     const [email, setemail] = useState('')
     const [body, setbody] = useState('')

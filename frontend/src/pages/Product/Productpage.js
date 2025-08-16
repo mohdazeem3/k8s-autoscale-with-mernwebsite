@@ -1,15 +1,19 @@
-import React, {useEffect,useState,useRef} from 'react'
-import Rating from '../../components/Rating'
-import {useDispatch, useSelector } from 'react-redux'
+import React, { useEffect, useState, useRef } from 'react';
+import Rating from '../../components/Rating';
+import { useDispatch, useSelector } from 'react-redux';
 import { Helmet } from 'react-helmet';
 
-import {listProductDetails,createproductReview} from '../../actions/productActions'
-import {IoLogoFacebook,AiFillTwitterCircle,AiFillInstagram,AiFillShop,MdDoNotDisturb}  from "react-icons/all"
-import { Image,Select,Button, FormControl, FormLabel, Textarea } from "@chakra-ui/react"
+import { listProductDetails, createproductReview } from '../../actions/productActions';
+import { IoLogoFacebook } from "react-icons/io";
+import { AiFillTwitterCircle, AiFillInstagram } from "react-icons/ai";
+import { AiFillShop } from "react-icons/ai"; // This icon might not exist; check your icon choice
+import { MdDoNotDisturb } from "react-icons/md";
+import { Image, Select, Button, FormControl, FormLabel, Textarea } from "@chakra-ui/react";
 import HashLoader from "react-spinners/HashLoader";
-import {PRODUCT_CREATE_RESET, PRODUCT_CREATE_REVIEW_RESET} from '../../constants/productConstants'
-import  './product.css'
-import { Link } from 'react-router-dom'
+import { PRODUCT_CREATE_RESET, PRODUCT_CREATE_REVIEW_RESET } from '../../constants/productConstants';
+import './product.css';
+import { Link } from 'react-router-dom';
+
 const Productpage = ({history,match}) => {
    const [qty, setQty] = useState(1)
    const [rating, setrating] = useState(0)

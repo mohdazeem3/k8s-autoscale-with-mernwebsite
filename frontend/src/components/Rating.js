@@ -1,6 +1,7 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import {AiFillStar,BsStarHalf,BsStar}  from "react-icons/all"
+import React from 'react';
+import PropTypes from 'prop-types';
+import { AiFillStar } from 'react-icons/ai';
+import { BsStarHalf, BsStar } from 'react-icons/bs';
 
 const Rating = ({value,text}) => {
     return (

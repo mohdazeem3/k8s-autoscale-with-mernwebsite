@@ -1,16 +1,17 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import { PayPalButton } from 'react-paypal-button-v2';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
-import {useDispatch, useSelector} from 'react-redux'
-import { IoMdDoneAll } from 'react-icons/all';
+import { useDispatch, useSelector } from 'react-redux';
+import { IoMdDoneAll } from 'react-icons/io';
 import HashLoader from "react-spinners/HashLoader";
-import { getOrderDetails, payOrder,deliverOrder } from "../../actions/orderActions";
-import './Order.css'
-import { ORDER_PAY_RESET,ORDER_DELIVER_RESET } from '../../constants/orderConstants';
+import { getOrderDetails, payOrder, deliverOrder } from "../../actions/orderActions";
+import './Order.css';
+import { ORDER_PAY_RESET, ORDER_DELIVER_RESET } from '../../constants/orderConstants';
 import { Button } from '@chakra-ui/button';
+
 const Order = ({match,history}) => {
     const [sdkReady, setsdkReady] = useState(false)
     const orderId = match.params.id

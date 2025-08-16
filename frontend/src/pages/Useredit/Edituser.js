@@ -1,15 +1,21 @@
-import React, {useState, useEffect,useRef} from 'react'
-import {Link} from 'react-router-dom'
-import {Form, Image} from 'react-bootstrap'
-import {useDispatch, useSelector} from 'react-redux'
-import {getUserDetails,updateUser} from '../../actions/userActions'
-import { AiOutlineUser, HiOutlineMail, IoIosArrowDown } from 'react-icons/all';
-import HashLoader from "react-spinners/HashLoader";
-import './Edituser.css'
-import { Input, InputGroup, InputRightElement } from '@chakra-ui/input'
-import { Checkbox } from '@chakra-ui/checkbox'
-import {  USER_UPDATE_RESET } from '../../constants/userConstants';
+import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
+import { Form, Image } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
+import { getUserDetails, updateUser } from '../../actions/userActions';
+
+// FIXED: Import icons from their specific packages
+import { AiOutlineUser } from 'react-icons/ai';
+import { HiOutlineMail } from 'react-icons/hi';
+import { IoIosArrowDown } from 'react-icons/io';
+
+import HashLoader from 'react-spinners/HashLoader';
+import './Edituser.css';
+import { Input, InputGroup, InputRightElement } from '@chakra-ui/input';
+import { Checkbox } from '@chakra-ui/checkbox';
+import { USER_UPDATE_RESET } from '../../constants/userConstants';
 import { Helmet } from 'react-helmet';
+
 
 
 const Edituser = ({match,history}) => {

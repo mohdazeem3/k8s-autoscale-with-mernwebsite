@@ -1,15 +1,16 @@
-import React, {useState, useEffect} from 'react'
-import {Link} from 'react-router-dom'
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
-import {Form, Image} from 'react-bootstrap'
-import {useDispatch, useSelector} from 'react-redux'
-import {BsArrowRight} from "react-icons/all"
-import avatar from './img/avatare.svg'
-import login from '../../actions/userActions'
-import login_svg from './img/login.svg'
-import wave from './img/wavev.png'
-import './logincss.css'
+import { Form, Image } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
+import { BsArrowRight } from 'react-icons/bs';
+import avatar from './img/avatare.svg';
+import login from '../../actions/userActions';
+import login_svg from './img/login.svg';
+import wave from './img/wavev.png';
+import './logincss.css';
+
 
 
 

@@ -1,28 +1,29 @@
-import React, {useState, useEffect,useRef} from 'react'
-import {Link} from 'react-router-dom'
-import {Form, Image} from 'react-bootstrap'
-import {useDispatch, useSelector} from 'react-redux'
-import avatarRegister from './img/avatarRegister.svg'
-import addUs from './img/new.svg'
-import wave from './img/wavev.png'
+import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
+import { Form, Image } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
+import avatarRegister from './img/avatarRegister.svg';
+import addUs from './img/new.svg';
+import wave from './img/wavev.png';
 import { Helmet } from 'react-helmet';
-import {getUserDetails, updateUserProfile} from '../actions/userActions'
-import {listMyOrders } from '../actions/orderActions'
-import { IoIosArrowDown } from 'react-icons/all';
-import HashLoader from "react-spinners/HashLoader";
-
-
-
+import { getUserDetails, updateUserProfile } from '../actions/userActions';
+import { listMyOrders } from '../actions/orderActions';
+import { IoIosArrowDown } from 'react-icons/io';
+import HashLoader from 'react-spinners/HashLoader';
 import {
-  Button, Input, Table,  Thead,
+  Button,
+  Input,
+  Table,
+  Thead,
   Tbody,
   Tfoot,
   Tr,
   Th,
   Td,
   TableCaption,
-} from "@chakra-ui/react"
-import { AiOutlineEdit } from 'react-icons/ai'
+} from '@chakra-ui/react';
+import { AiOutlineEdit } from 'react-icons/ai';
+
 
 const ProfileScreen = ({location, history}) => {
   const [name,setName] = useState('')

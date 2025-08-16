@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mern-frontend
+  namespace: mern
+  labels:
+    app: mern-frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: mern-frontend
+  template:
+    metadata:
+      labels:
+        app: mern-frontend
+    spec:
+      containers:
+        - name: frontend
+          image: azeem345/mern-stack-web:frontend
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+          # If your frontend needs to know the backend URL at runtime,
+          # add a small init script or use an ENV-injection approach.
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 20
+            periodSeconds: 20
+          resources:
+            requests:
+              cpu: "50m"
+              memory: "64Mi"
+            limits:
+              cpu: "200m"
+              memory: "256Mi"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mern-frontend
+  namespace: mern
+spec:
+  type: ClusterIP
+  selector:
+    app: mern-frontend
+  ports:
+    - name: http
+      port: 80
+      targetPort: 80
+

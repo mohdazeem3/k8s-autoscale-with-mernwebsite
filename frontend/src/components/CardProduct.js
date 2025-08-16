@@ -1,10 +1,10 @@
-import {React,useState,useEffect} from 'react'
-import {HiOutlineShoppingCart,HiShoppingCart} from "react-icons/all"
-import { Image } from "@chakra-ui/react"
-import {Link } from 'react-router-dom'
-import Rating from './Rating'
+import React, { useState, useEffect } from 'react';
+import { HiOutlineShoppingCart, HiShoppingCart } from "react-icons/hi";
+import { Image } from "@chakra-ui/react";
+import { Link } from 'react-router-dom';
+import Rating from './Rating';
 import { addToCart } from "../actions/cartActions";
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux';
 const CardProduct = ({product}) => {
     const  [showbtn,setShowbtn] = useState(false) 
     const  [Incart,setIncart] = useState(false) 

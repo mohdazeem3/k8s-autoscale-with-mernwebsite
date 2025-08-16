@@ -1,10 +1,14 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
-import { Input, Stack, Select, Image, Link } from "@chakra-ui/react"
-import {RiShoppingCart2Line} from "react-icons/all"
-import './checkout.css'
-import { saveAddressshipping,savepaymentmethod } from '../../actions/cartActions'
-import { useDispatch, useSelector } from 'react-redux'
+import { Input, Stack, Select, Image, Link } from '@chakra-ui/react';
+
+// FIXED: Import icon from its specific package
+import { RiShoppingCart2Line } from 'react-icons/ri';
+
+import './checkout.css';
+import { saveAddressshipping, savepaymentmethod } from '../../actions/cartActions';
+import { useDispatch, useSelector } from 'react-redux';
+
 
 const Checkout = ({history}) => {
     const cart = useSelector((state) => state.cart)

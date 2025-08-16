@@ -1,7 +1,7 @@
 import { Image } from '@chakra-ui/image'
 import React,{useRef,useState,useEffect} from 'react'
 import { Select } from "@chakra-ui/react"
-import { VscChromeClose } from "react-icons/all";
+import { VscChromeClose } from "react-icons/vsc";
 import { addToCart,removeFromCart } from '../actions/cartActions';
 import { useDispatch } from "react-redux";
 import { Link } from 'react-router-dom';
