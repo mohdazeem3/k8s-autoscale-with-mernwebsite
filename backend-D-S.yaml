@@ -1,0 +1,77 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mern-backend
+  namespace: mern
+  labels:
+    app: mern-backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: mern-backend
+  template:
+    metadata:
+      labels:
+        app: mern-backend
+    spec:
+      containers:
+        - name: backend
+          image: azeem345/mern-stack-web:backend
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5000
+          env:
+            - name: NODE_ENV
+              value: "production"
+            - name: PORT
+              value: "5000"
+            - name: MONGO_URI
+              valueFrom:
+                secretKeyRef:
+                  name: mern-secrets
+                  key: MONGO_URI
+            - name: PAYPAL_CLIENT_ID
+              valueFrom:
+                secretKeyRef:
+                  name: mern-secrets
+                  key: PAYPAL_CLIENT_ID
+            # If your backend needs CORS or FRONTEND_URL, add it here
+            # - name: FRONTEND_URL
+            #   value: "https://your-frontend-domain"
+          readinessProbe:
+            httpGet:
+              path: /api/health
+              port: 5000
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            failureThreshold: 10
+          livenessProbe:
+            httpGet:
+              path: /api/health
+              port: 5000
+            initialDelaySeconds: 60
+            periodSeconds: 15
+            failureThreshold: 5
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "256Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mern-backend
+  namespace: mern
+spec:
+  type: ClusterIP
+  selector:
+    app: mern-backend
+  ports:
+    - name: http
+      port: 5000
+      targetPort: 5000
+
