@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mern-backend
-  namespace: mern
   labels:
     app: mern-backend
 spec:
@@ -65,7 +64,6 @@ apiVersion: v1
 kind: Service
 metadata:
   name: mern-backend
-  namespace: mern
 spec:
   type: ClusterIP
   selector:
