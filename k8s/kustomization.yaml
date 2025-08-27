@@ -3,7 +3,6 @@ kind: Kustomization
 
 # Apply resources in this order
 resources:
-  - mern.yaml
   - mern-secrets.yaml
   - backend-D-S.yaml
   - frontend-D-S.yaml
