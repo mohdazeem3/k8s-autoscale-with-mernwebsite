@@ -52,7 +52,7 @@ pipeline {
                     sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" k8s/backend-D-S.yaml
                     sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" k8s/frontend-D-S.yaml
                     git add k8s/backend-D-S.yaml
-                    git add k8s.frontend-D-S.yaml
+                    git add k8s/frontend-D-S.yaml
                     git commit -m "Update deployment image to version ${BUILD_NUMBER}"
                     git push https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME} HEAD:main
                 '''
