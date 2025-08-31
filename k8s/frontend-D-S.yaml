@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: azeem345/mern-frontend:7
+          image: azeem345/mern-frontend:replaceImageTag
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 80
