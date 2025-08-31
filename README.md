@@ -48,6 +48,10 @@ Jenkins CI/CD automatically builds & deploys on new commits.
 
 Monitor Metrics in Grafana, set up alerts from Prometheus.
 
+## Architecture Diagram:
+<img width="1536" height="1024" alt="ChatGPT Image Aug 31, 2025, 06_42_48 AM" src="https://github.com/user-attachments/assets/49ae9312-7c15-46e8-9517-3cc5195bd1f4" />
+
+
 ## 📊 Demo Workflow
 
 Deploy initial app → 1 pod running.
@@ -58,28 +62,11 @@ If pods exceed node capacity → Cluster Autoscaler provisions new EC2 node.
 
 When load decreases → extra pods and unused nodes are removed to save cost.
 
+
 # Mern-Ecommerce-website 
- 
 
 <img width = "800" src="https://i.imgur.com/a7YFo86.png"/>  
 
 <img width="800"  alt="Screenshot 2025-08-30 220032" src="https://github.com/user-attachments/assets/7c1737a6-1b82-4a54-8157-e0c0b951ddb5" />
-
-
-- Add or Edit :
-<img width = "300" src="https://i.imgur.com/p725woy.png"/>
-<img width = "300" src="https://i.imgur.com/80E5x6p.png"/>
-
-- Users :
-<img width = "800" src="https://i.imgur.com/sCdikSM.png"/>  
-
-- Edit :
-<img width = "300" src="https://i.imgur.com/U7LXWm0.png"/>
-
-- Orders :
-<img width = "800" src="https://i.imgur.com/wyyvpYQ.png"/>
-
-- After clicking on details you can deliver the order if its paid :
-<img width = "800" src="https://i.imgur.com/Q9mX0X5.png"/>
 
 
