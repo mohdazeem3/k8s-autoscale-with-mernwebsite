@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: azeem345/mern-backend:replaceImageTag
+          image: azeem345/mern-backend:9
           imagePullPolicy: Always
           ports:
             - containerPort: 5000
